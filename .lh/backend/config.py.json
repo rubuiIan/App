@@ -1,0 +1,26 @@
+{
+    "sourceFile": "backend/config.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1727356702085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727357249322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +0,0 @@\n-from config import db\r\n-\r\n-\r\n-class Contact(db.Model):\r\n-    id = db.Column(db.Integer, primary_key=True)\r\n-    first_name = db.Column(db.String(80), unique=False, nullable=False)\r\n-    last_name = db.Column(db.String(80), unique=False, nullable=False)\r\n-    email = db.Column(db.String(120), unique=True, nullable=False)\r\n-\r\n-    def to_json(self):\r\n-        return {\r\n-            \"id\": self.id,\r\n-            \"firstName\": self.first_name,\r\n-            \"lastName\": self.last_name,\r\n-            \"email\": self.email,\r\n-        }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1727357270273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+from flask import Flask\r\n+from flask_sqlalchemy import SQLAlchemy\r\n+from flask_cors import CORS\r\n+\r\n+app = Flask(__name__)\r\n+CORS(app)\r\n+\r\n+app.config[\"SQLALCHEMY_DATABASE_URI\"] = \"sqlite:///mydatabase.db\"\r\n+app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\r\n+\r\n+db = SQLAlchemy(app)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1727356702085,
+            "name": "Commit-0",
+            "content": "from config import db\r\n\r\n\r\nclass Contact(db.Model):\r\n    id = db.Column(db.Integer, primary_key=True)\r\n    first_name = db.Column(db.String(80), unique=False, nullable=False)\r\n    last_name = db.Column(db.String(80), unique=False, nullable=False)\r\n    email = db.Column(db.String(120), unique=True, nullable=False)\r\n\r\n    def to_json(self):\r\n        return {\r\n            \"id\": self.id,\r\n            \"firstName\": self.first_name,\r\n            \"lastName\": self.last_name,\r\n            \"email\": self.email,\r\n        }"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "backend/models.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1727357306782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727357314140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+from config import db\r\n+\r\n+\r\n+class Contact(db.Model):\r\n+    id = db.Column(db.Integer, primary_key=True)\r\n+    first_name = db.Column(db.String(80), unique=False, nullable=False)\r\n+    last_name = db.Column(db.String(80), unique=False, nullable=False)\r\n+    email = db.Column(db.String(120), unique=True, nullable=False)\r\n+\r\n+    def to_json(self):\r\n+        return {\r\n+            \"id\": self.id,\r\n+            \"firstName\": self.first_name,\r\n+            \"lastName\": self.last_name,\r\n+            \"email\": self.email,\r\n+        }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1727357306782,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

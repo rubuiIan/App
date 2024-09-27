@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/ContactList.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1727360818736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1727360818736,
+            "name": "Commit-0",
+            "content": "import React from \"react\"\r\n\r\nconst ContactList = ({ contacts, updateContact, updateCallback }) => {\r\n    const onDelete = async (id) => {\r\n        try {\r\n            const options = {\r\n                method: \"DELETE\"\r\n            }\r\n            const response = await fetch(`http://127.0.0.1:5000/delete_contact/${id}`, options)\r\n            if (response.status === 200) {\r\n                updateCallback()\r\n            } else {\r\n                console.error(\"Failed to delete\")\r\n            }\r\n        } catch (error) {\r\n            alert(error)\r\n        }\r\n    }\r\n\r\n    return <div>\r\n        <h2>Contacts</h2>\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th>First Name</th>\r\n                    <th>Last Name</th>\r\n                    <th>Email</th>\r\n                    <th>Actions</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                {contacts.map((contact) => (\r\n                    <tr key={contact.id}>\r\n                        <td>{contact.firstName}</td>\r\n                        <td>{contact.lastName}</td>\r\n                        <td>{contact.email}</td>\r\n                        <td>\r\n                            <button onClick={() => updateContact(contact)}>Update</button>\r\n                            <button onClick={() => onDelete(contact.id)}>Delete</button>\r\n                        </td>\r\n                    </tr>\r\n                ))}\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n}\r\n\r\nexport default ContactList"
+        }
+    ]
+}
